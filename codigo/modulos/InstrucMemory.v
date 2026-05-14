@@ -8,10 +8,10 @@ module InstrucMemory (
 );
 
     // memória de bytes
-    reg [7:0] mem [0:150];
+    reg [7:0] mem [0:127];
 
     initial begin
-        $readmemb("instrucoes.mem", mem);
+        $readmemb("../arquivos-entrada/assembly.bin", mem);
     end
 
     always @(*) begin

@@ -18,7 +18,7 @@ module dataMemory (
         end
     end
 
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if(memRead == 0 && memWrite == 1) begin
             mem[endereco] <= valorParaEscrita[7:0];
             mem[endereco + 1] <= valorParaEscrita[15:8];
