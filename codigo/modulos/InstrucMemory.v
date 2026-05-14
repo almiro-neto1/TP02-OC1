@@ -4,17 +4,26 @@
 
 module InstrucMemory (
     input wire [31:0] endereco,
-    output reg [31:0] instrucao,
+    output reg [31:0] instrucao
 );
 
-    reg [31:0] mem [0:63];      //64 instruções
+    // memória de bytes
+    reg [7:0] mem [0:150];
 
     initial begin
         $readmemb("instrucoes.mem", mem);
     end
 
     always @(*) begin
-        instrucao = mem[endereco[7:2]];   //endereço é dividido por 4
+
+        // little-endian
+        instrucao = {
+            mem[endereco + 3],
+            mem[endereco + 2],
+            mem[endereco + 1],
+            mem[endereco]
+        };
+
     end
 
-end module        
+endmodule
