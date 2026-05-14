@@ -5,7 +5,7 @@ module pc (
     input wire clk,
     input wire reset, 
     input wire[31:0] pcEntrada,
-    output reg[31:0] pcSaida,
+    output reg[31:0] pcSaida
 );
     always @(posedge clk or posedge reset) begin
         if (reset) 

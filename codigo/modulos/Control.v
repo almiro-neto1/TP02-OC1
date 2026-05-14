@@ -7,11 +7,11 @@ module Control (
     input wire [6:0] opcode,
     output reg branch,
     output reg memRead,
-    output reg mentoReg,
+    output reg memtoReg,
     output reg [1:0] ALUOp,
-    output reg MemWrite,
+    output reg memWrite,
     output reg ALUSrc,
-    output reg RegWrite
+    output reg regWrite
 );
 
     always @(*) begin
@@ -22,7 +22,7 @@ module Control (
         ALUOp = 2'b00;
         memWrite = 0;
         ALUSrc = 0;
-        RegWrite = 0;
+        regWrite = 0;
 
         case(opcode)
             7'b0110011: begin  //Tipo R: add, xor, sll
