@@ -23,20 +23,20 @@ module testbench;
 
         // Libera e executa 30 ciclos
         reset = 0;
-        repeat(30) @(posedge clk);
+        repeat(150) @(posedge clk);
 
         $display("========================================");
         $display("        ESTADO DOS REGISTRADORES        ");
-        $display("========================================");
+        $display("========================================\n");
         for (i = 0; i < 32; i = i + 1) begin
-            $display("Register [%2d] : %b", i, dut.registers.regs[i]);
+            $display("Register [%2d] : %d - %b", i, dut.registers.regs[i], dut.registers.regs[i]);
         end
 
         $display("\n========================================");
         $display("           ESTADO DA MEMORIA            ");
-        $display("========================================");
-        for (i = 0; i < 128; i = i + 1) begin
-            $display("Memoria [%3d] : %b", i, dut.dataMemory.mem[i]);
+        $display("========================================\n");
+        for (i = 0; i < 128; i = i + 4) begin
+            $display("Memoria [%3d] : %d - %b", i, {dut.dataMemory.mem[i + 3], dut.dataMemory.mem[i + 2], dut.dataMemory.mem[i + 1], dut.dataMemory.mem[i]}, {dut.dataMemory.mem[i + 3], dut.dataMemory.mem[i + 2], dut.dataMemory.mem[i + 1], dut.dataMemory.mem[i]});
         end
         $display("========================================");
 
