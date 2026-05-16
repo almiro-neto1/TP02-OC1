@@ -12,7 +12,7 @@ module testbench;
 
     // Clock: inicializa antes de oscilar
     initial clk = 0;
-    always #5 clk = ~clk;
+    always #15 clk = ~clk;
 
     integer i;
 
@@ -29,18 +29,14 @@ module testbench;
         $display("        ESTADO DOS REGISTRADORES        ");
         $display("========================================");
         for (i = 0; i < 32; i = i + 1) begin
-            $display("Register [%2d] : %d", i, dut.registers.regs[i]);
+            $display("Register [%2d] : %b", i, dut.registers.regs[i]);
         end
 
         $display("\n========================================");
         $display("           ESTADO DA MEMORIA            ");
         $display("========================================");
-        for (i = 0; i < 32; i = i + 4) begin
-            $display("Memoria [%2d] : %d", i,
-                {dut.dataMemory.mem[i+3],
-                 dut.dataMemory.mem[i+2],
-                 dut.dataMemory.mem[i+1],
-                 dut.dataMemory.mem[i]});
+        for (i = 0; i < 128; i = i + 1) begin
+            $display("Memoria [%3d] : %b", i, dut.dataMemory.mem[i]);
         end
         $display("========================================");
 

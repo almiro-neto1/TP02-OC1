@@ -6,7 +6,7 @@ module dataMemory (
 
     reg [7:0] mem [0:127];
     initial begin
-        $readmemb("../arquivos-entrada/data-memory.bin", mem);
+        $readmemb("arquivos-entrada/data-memory.bin", mem);
     end
 
     always @(*) begin

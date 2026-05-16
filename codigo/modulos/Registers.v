@@ -21,7 +21,7 @@ module Registers (
 reg [31:0] regs [0:31];
  
     initial begin
-        $readmemb("../arquivos-entrada/registradores.bin", regs);
+        $readmemb("arquivos-entrada/registradores.bin", regs);
     end
  
     always @(*) begin

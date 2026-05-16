@@ -26,6 +26,9 @@ module ALUControl (
                 default: operacao = 2'b00;
             endcase
         end
+        else begin
+            operacao = 2'b00;
+        end
     end
 
 endmodule

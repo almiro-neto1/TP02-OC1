@@ -11,7 +11,7 @@ module InstrucMemory (
     reg [7:0] mem [0:127];
 
     initial begin
-        $readmemb("../arquivos-entrada/assembly.bin", mem);
+        $readmemb("arquivos-entrada/assembly.bin", mem);
     end
 
     always @(*) begin
